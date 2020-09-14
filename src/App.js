@@ -28,6 +28,11 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
+        var meta = document.createElement('meta');
+        meta.name = "referrer";
+        meta.content = "origin";
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
 		bridge.send('VKWebAppGetUserInfo', {})
 			.then((user) => {
 				this.setState({ user });
